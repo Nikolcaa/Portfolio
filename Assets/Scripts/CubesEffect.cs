@@ -47,10 +47,9 @@ public class CubesEffect : MonoBehaviour
             {
                 _startPosX = (_columns / -2);
                 _startPosY = -(_rows - 1) / 2f;
-                GameObject newCube = Instantiate(_cube, new Vector3(_startPosX, _startPosY, 0), Quaternion.identity);
-                Vector3 newPos = new Vector3(_startPosX + x, _startPosY + y, 0);
-                newCube.transform.position = newPos;
-                _cubes.Add(newCube.transform);
+                Transform newCube = Instantiate(_cube, new Vector3(_startPosX + x, _startPosY + y, 0), Quaternion.identity).transform;
+                newCube.SetParent(transform);
+                _cubes.Add(newCube);
             }
         }
     }
