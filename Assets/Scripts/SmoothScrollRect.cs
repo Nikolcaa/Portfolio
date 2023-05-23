@@ -16,7 +16,9 @@ public class SmoothScrollRect : ScrollRect
         if (!IsActive())
             return;
 
+        base.OnScroll(data);
 
+        /*
         if (SmoothScrolling)
         {
             Vector2 positionBefore = normalizedPosition;
@@ -31,5 +33,6 @@ public class SmoothScrollRect : ScrollRect
         {
             base.OnScroll(data);
         }
+        */
     }
 }
