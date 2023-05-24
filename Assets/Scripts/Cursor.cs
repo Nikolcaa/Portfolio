@@ -5,6 +5,15 @@ using UnityEngine;
 public class Cursor : MonoBehaviour
 {
     [SerializeField] private float _mouseZOffset;
+    [SerializeField] private float _speed;
+    private static Transform T;
+
+    public static Vector3 Position => T.position;
+
+    private void Awake()
+    {
+        T = transform;
+    }
 
     private void Update()
     {
@@ -13,6 +22,6 @@ public class Cursor : MonoBehaviour
 
     private void FollowMouse()
     {
-        transform.position = MouseManager.GetMousePos(_mouseZOffset);
+        transform.position = Vector3.Lerp(transform.position, MouseManager.GetMousePos(_mouseZOffset), _speed * Time.deltaTime);
     }
 }

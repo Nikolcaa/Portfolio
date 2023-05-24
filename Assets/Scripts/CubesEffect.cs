@@ -33,7 +33,8 @@ public class CubesEffect : MonoBehaviour
     float _distanceDevider;
     private void Update()
     {
-        Vector3 mousePos = MouseManager.GetMousePos(_mouseZOffset);
+        //Vector3 mousePos = MouseManager.GetMousePos(_mouseZOffset);
+        Vector3 mousePos = Cursor.Position;
         _distanceDevider = Mathf.Lerp(_distanceDeviderMin, _distanceDeviderMax, ScrollManager.ScrollValue*3 - 2);
 
         if (_distanceDevider <= 0)
