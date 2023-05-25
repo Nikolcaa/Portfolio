@@ -10,13 +10,17 @@ public class Cursor : MonoBehaviour
 
     public static Vector3 Position => T.position;
 
-    private void Awake()
+    public void SetUp()
     {
         T = transform;
+        T.position = Vector3.zero;
     }
 
     private void Update()
     {
+        if (GameManager.Instance.GameState != GameState.STATE1_HOME)
+            return;
+
         FollowMouse();
     }
 

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ba51b8e5c772fb2408f926fd64ad323e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - IBM Plex Serif SemiBold
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 35f7bc34c491aa948be4a3e861067bca, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

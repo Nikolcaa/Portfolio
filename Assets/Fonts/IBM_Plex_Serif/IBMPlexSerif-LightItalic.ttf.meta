@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 0e9745926f684124ea98cba555bdaa11
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - IBM Plex Serif Light
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 777097b7f077f0046ba1c03d92fceee2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

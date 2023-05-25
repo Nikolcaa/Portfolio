@@ -25,12 +25,24 @@ public class CubesEffect : MonoBehaviour
     private List<Transform> _cubesPositionsPart2 = new List<Transform>();
     private Vector3 _cachedCubeScale;
 
-
-    private void Start()
+    public void SetUp()
     {
         CreateCubesGrid();
         CreateCubesGrid2();
         _cachedCubeScale = _cubes[0].localScale;
+        Invoke(nameof(Animate_CubesComeToCursor), 3f);
+    }
+
+    private void Animate_CubesComeToCursor()
+    {
+        foreach (Transform cube in _cubes)
+        {
+            cube.DOMove(Cursor.Position, 5)
+                .SetSpeedBased(true)
+                .SetEase(Ease.InOutBack);
+
+            cube.DOScale(new Vector3(6, 6, 6), 2);
+        }
     }
 
     float _distanceDeviderMax = 5f; // 4.5f
@@ -38,10 +50,13 @@ public class CubesEffect : MonoBehaviour
     float _distanceDevider;
     private void Update()
     {
+        if (GameManager.Instance.GameState != GameState.STATE1_HOME)
+            return;
+
         //Vector3 mousePos = MouseManager.GetMousePos(_mouseZOffset);
         Vector3 mousePos = Cursor.Position;
-        //_distanceDevider = Mathf.Lerp(_distanceDeviderMin, _distanceDeviderMax, ScrollManager.ScrollValue*3 - 2);
-        _distanceDevider = _distanceDeviderMax;
+        _distanceDevider = Mathf.Lerp(_distanceDeviderMax, _distanceDeviderMin, ScrollManager.ScrollValue*3f - 2.5f);
+        //_distanceDevider = _distanceDeviderMax;
 
         //if (_distanceDevider <= 0)
         //    return;
@@ -64,7 +79,7 @@ public class CubesEffect : MonoBehaviour
             // Position
             Vector3 dir2 = mousePos - _cubesPositions[i];
             Vector3 finalPos = Vector3.Lerp(_cubesPositions[i], _cubesPositions[i] + dir2, distance);
-            cube.position = Vector3.MoveTowards(cube.position, finalPos, Time.deltaTime * 50);
+            cube.position = Vector3.MoveTowards(cube.position, finalPos, Time.deltaTime * 35);
 
             // Rotate
             //cube.LookAt(mousePos);
