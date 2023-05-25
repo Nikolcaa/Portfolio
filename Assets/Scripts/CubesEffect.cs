@@ -43,20 +43,21 @@ public class CubesEffect : MonoBehaviour
         //_distanceDevider = Mathf.Lerp(_distanceDeviderMin, _distanceDeviderMax, ScrollManager.ScrollValue*3 - 2);
         _distanceDevider = _distanceDeviderMax;
 
-        if (_distanceDevider <= 0)
-            return;
+        //if (_distanceDevider <= 0)
+        //    return;
 
         for (int i = 0; i < _cubes.Count; i++)
         {
             Transform cube = _cubes[i];
             float distance = Mathf.Clamp01(Vector2.Distance(_cubesPositions[i], mousePos) / _distanceDevider);
 
-            //float d = Vector2.Distance(mousePos, _cubesPositionsPart2[i].position);
-            float d = mousePos.y - _cubesPositionsPart2[i].position.y;
-            if (d <= 4)
+            float d = Vector2.Distance(mousePos, _cubesPositionsPart2[i].position);
+            //float d = mousePos.y - _cubesPositionsPart2[i].position.y;
+            if (d <= 7)
             {
                 cube.position = Vector3.Lerp(cube.position, _cubesPositionsPart2[i].position, 4 * Time.deltaTime);
                 cube.localScale = Vector3.Lerp(cube.localScale, _cachedCubeScale, 4 * Time.deltaTime);
+                cube.forward = Vector3.Lerp(cube.forward, Vector3.forward, 4 * Time.deltaTime);
                 continue;
             }
 
@@ -72,7 +73,7 @@ public class CubesEffect : MonoBehaviour
 
             // Scale
             Vector3 finalScale = Vector3.Lerp(_cachedCubeScale, new Vector3(6, 6, 6), distance);
-            cube.localScale = Vector3.MoveTowards(cube.localScale, finalScale, Time.deltaTime * 250);
+            cube.localScale = Vector3.MoveTowards(cube.localScale, finalScale, Time.deltaTime * 1000);
 
 
 
@@ -99,7 +100,7 @@ public class CubesEffect : MonoBehaviour
     // With offset
     private void CreateCubesGrid2()
     {
-        float yOffset = _granicnik.position.y * 2;
+        float yOffset = _granicnik.position.y;
         for (int y = 0; y < _rows; y++)
         {
             for (int x = 0; x < _columns; x++)
