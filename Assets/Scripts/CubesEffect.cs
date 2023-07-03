@@ -45,7 +45,7 @@ public class CubesEffect : MonoBehaviour
         }
     }
 
-    float _distanceDeviderMax = 5f; // 4.5f
+    float _distanceDeviderMax = 6.5f; // 4.5f
     float _distanceDeviderMin = 0f;
     float _distanceDevider;
     private void Update()
@@ -55,8 +55,8 @@ public class CubesEffect : MonoBehaviour
 
         //Vector3 mousePos = MouseManager.GetMousePos(_mouseZOffset);
         Vector3 mousePos = Cursor.Position;
-        _distanceDevider = Mathf.Lerp(_distanceDeviderMax, _distanceDeviderMin, ScrollManager.ScrollValue*3f - 2.5f);
-        //_distanceDevider = _distanceDeviderMax;
+        //_distanceDevider = Mathf.Lerp(_distanceDeviderMax, _distanceDeviderMin, ScrollManager.ScrollValue*3f - 2.5f);
+        _distanceDevider = _distanceDeviderMax;
 
         //if (_distanceDevider <= 0)
         //    return;
@@ -75,10 +75,12 @@ public class CubesEffect : MonoBehaviour
                 cube.forward = Vector3.Lerp(cube.forward, Vector3.forward, 4 * Time.deltaTime);
                 continue;
             }
+            if (ScrollManager.ScrollValue <= 0.65f)
+                continue;
 
             // Position
             Vector3 dir2 = mousePos - _cubesPositions[i];
-            Vector3 finalPos = Vector3.Lerp(_cubesPositions[i], _cubesPositions[i] + dir2, distance);
+            Vector3 finalPos = Vector3.Lerp(_cubesPositions[i], _cubesPositions[i] - dir2, distance);
             cube.position = Vector3.MoveTowards(cube.position, finalPos, Time.deltaTime * 35);
 
             // Rotate
@@ -87,11 +89,8 @@ public class CubesEffect : MonoBehaviour
             cube.forward = Vector3.Lerp(Vector3.forward, dir, distance);
 
             // Scale
-            Vector3 finalScale = Vector3.Lerp(_cachedCubeScale, new Vector3(6, 6, 6), distance);
+            Vector3 finalScale = Vector3.Lerp(_cachedCubeScale, new Vector3(1, 1, 1), distance);
             cube.localScale = Vector3.MoveTowards(cube.localScale, finalScale, Time.deltaTime * 1000);
-
-
-
 
         }
     }
