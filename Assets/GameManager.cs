@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         //StartCoroutine(DelayToChangeState());
         //IEnumerator DelayToChangeState()
         //{
-        //    yield return new WaitForSeconds(3f);
+        //    yield return new WaitForSeconds(2f);
             ChangeState(GameState.STATE1_HOME);
         //}
     }

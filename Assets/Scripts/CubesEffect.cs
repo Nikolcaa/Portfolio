@@ -30,7 +30,7 @@ public class CubesEffect : MonoBehaviour
         CreateCubesGrid();
         CreateCubesGrid2();
         _cachedCubeScale = _cubes[0].localScale;
-        //Invoke(nameof(Animate_CubesComeToCursor), 3f);
+        //Invoke(nameof(Animate_CubesComeToCursor), 2f);
     }
 
     private void Animate_CubesComeToCursor()
@@ -45,7 +45,7 @@ public class CubesEffect : MonoBehaviour
         }
     }
 
-    float _distanceDeviderMax = 4f; // 4.5f
+    float _distanceDeviderMax = 15f; // 4.5f // 8f
     float _distanceDeviderMin = 0f;
     float _distanceDevider;
     private void Update()
@@ -55,8 +55,8 @@ public class CubesEffect : MonoBehaviour
 
         //Vector3 mousePos = MouseManager.GetMousePos(_mouseZOffset);
         Vector3 mousePos = Cursor.Position;
-        //_distanceDevider = Mathf.Lerp(_distanceDeviderMax, _distanceDeviderMin, ScrollManager.ScrollValue*3f - 2.5f);
-        _distanceDevider = _distanceDeviderMax; // This one is to be like a black hole
+        _distanceDevider = Mathf.Lerp(_distanceDeviderMax, _distanceDeviderMin, ScrollManager.ScrollValue*3f - 2.5f); // This one is to be like a black hole
+        //_distanceDevider = _distanceDeviderMax; 
 
         //if (_distanceDevider <= 0)
         //    return;
@@ -67,7 +67,6 @@ public class CubesEffect : MonoBehaviour
             float distance = Mathf.Clamp01(Vector2.Distance(_cubesPositions[i], mousePos) / _distanceDevider);
 
             float d = Vector2.Distance(mousePos, _cubesPositionsPart2[i].position);
-            //float d = mousePos.y - _cubesPositionsPart2[i].position.y;
             if (d <= 7)
             {
                 cube.position = Vector3.Lerp(cube.position, _cubesPositionsPart2[i].position, 4 * Time.deltaTime);
@@ -90,7 +89,7 @@ public class CubesEffect : MonoBehaviour
             //cube.forward = Vector3.Lerp(Vector3.forward, dir, distance);
 
             // Scale
-            Vector3 finalScale = Vector3.Lerp(_cachedCubeScale, new Vector3(1, 1, 1), distance);
+            Vector3 finalScale = Vector3.Lerp(_cachedCubeScale, new Vector3(1, 1, 1), distance * 3); // distance*3
             cube.localScale = Vector3.MoveTowards(cube.localScale, finalScale, Time.deltaTime * 1000);
 
         }
