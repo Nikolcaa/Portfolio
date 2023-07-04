@@ -30,7 +30,7 @@ public class CubesEffect : MonoBehaviour
         CreateCubesGrid();
         CreateCubesGrid2();
         _cachedCubeScale = _cubes[0].localScale;
-        Invoke(nameof(Animate_CubesComeToCursor), 3f);
+        //Invoke(nameof(Animate_CubesComeToCursor), 3f);
     }
 
     private void Animate_CubesComeToCursor()
@@ -45,7 +45,7 @@ public class CubesEffect : MonoBehaviour
         }
     }
 
-    float _distanceDeviderMax = 6.5f; // 4.5f
+    float _distanceDeviderMax = 4f; // 4.5f
     float _distanceDeviderMin = 0f;
     float _distanceDevider;
     private void Update()
@@ -56,7 +56,7 @@ public class CubesEffect : MonoBehaviour
         //Vector3 mousePos = MouseManager.GetMousePos(_mouseZOffset);
         Vector3 mousePos = Cursor.Position;
         //_distanceDevider = Mathf.Lerp(_distanceDeviderMax, _distanceDeviderMin, ScrollManager.ScrollValue*3f - 2.5f);
-        _distanceDevider = _distanceDeviderMax;
+        _distanceDevider = _distanceDeviderMax; // This one is to be like a black hole
 
         //if (_distanceDevider <= 0)
         //    return;
@@ -81,12 +81,13 @@ public class CubesEffect : MonoBehaviour
             // Position
             Vector3 dir2 = mousePos - _cubesPositions[i];
             Vector3 finalPos = Vector3.Lerp(_cubesPositions[i], _cubesPositions[i] - dir2, distance);
+            //Vector3 finalPos = Vector3.Lerp(_cubesPositions[i], _cubesPositions[i] + dir2, distance); // This one is to be like a black hole
             cube.position = Vector3.MoveTowards(cube.position, finalPos, Time.deltaTime * 35);
 
             // Rotate
-            //cube.LookAt(mousePos);
-            Vector3 dir = Vector2.ClampMagnitude(_cubesPositions[i] - mousePos, 1);
-            cube.forward = Vector3.Lerp(Vector3.forward, dir, distance);
+            cube.LookAt(mousePos);
+            //Vector3 dir = Vector2.ClampMagnitude(_cubesPositions[i] - mousePos, 1);
+            //cube.forward = Vector3.Lerp(Vector3.forward, dir, distance);
 
             // Scale
             Vector3 finalScale = Vector3.Lerp(_cachedCubeScale, new Vector3(1, 1, 1), distance);

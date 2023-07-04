@@ -33,12 +33,12 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<Cursor>().SetUp();
         FindObjectOfType<CubesEffect>().SetUp();
 
-        StartCoroutine(DelayToChangeState());
-        IEnumerator DelayToChangeState()
-        {
-            yield return new WaitForSeconds(5.5f);
+        //StartCoroutine(DelayToChangeState());
+        //IEnumerator DelayToChangeState()
+        //{
+        //    yield return new WaitForSeconds(3f);
             ChangeState(GameState.STATE1_HOME);
-        }
+        //}
     }
 
     public void ChangeState(GameState newState)
