@@ -42,7 +42,8 @@ public class Cursor : MonoBehaviour
     {
         Vector2 dir = transform.position - MouseManager.GetMousePos(_mouseZOffset);
         Vector3 newScale = transform.localScale;
-        newScale.y = 1 + dir.magnitude / 2;
+        newScale.y = 1 + dir.magnitude / 2.5f;
+        newScale.x = 1 - dir.magnitude / 4f;
         transform.localScale = newScale;
     }
 }

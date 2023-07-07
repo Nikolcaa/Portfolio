@@ -166,8 +166,8 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4278250495
   m_fontColor: {r: 1, g: 0.9214484, b: 0, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
+  m_enableVertexGradient: 1
+  m_colorMode: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
@@ -313,6 +313,8 @@ GameObject:
   - component: {fileID: 1270356338096988390}
   - component: {fileID: 1948485192}
   - component: {fileID: 8880342646684112505}
+  - component: {fileID: 9022239264755764926}
+  - component: {fileID: 5214996892712142398}
   m_Layer: 5
   m_Name: Project
   m_TagString: Untagged
@@ -393,7 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -457,6 +459,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 1270356338096988394}
   _anim: {fileID: 1948485192}
+--- !u!114 &9022239264755764926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270356338096988395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3eedef14d4aa914ca4db70834f3af92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5214996892712142398}
+        m_TargetAssemblyTypeName: Link, Assembly-CSharp
+        m_MethodName: OpenLink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5214996892712142398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270356338096988395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce73887a4e657cf4295abe391799c1b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LinkUrl: 
 --- !u!1 &1880291437851646509
 GameObject:
   m_ObjectHideFlags: 0
