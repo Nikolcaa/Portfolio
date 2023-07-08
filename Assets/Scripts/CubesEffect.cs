@@ -74,7 +74,7 @@ public class CubesEffect : MonoBehaviour
                 cube.forward = Vector3.Lerp(cube.forward, Vector3.forward, 4 * Time.deltaTime);
                 continue;
             }
-            if (ScrollManager.ScrollValue <= 0.45f) // after this they will go to fixed positions
+            if (ScrollManager.ScrollValue <= 0.43f) // after this they will go to fixed positions
             {
                 cube.position = Vector3.Lerp(cube.position, _cubesPositionsPart2[i].position, 4 * Time.deltaTime);
                 cube.localScale = Vector3.Lerp(cube.localScale, _cachedCubeScale, 4 * Time.deltaTime);

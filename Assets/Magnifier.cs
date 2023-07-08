@@ -18,7 +18,7 @@ public class Magnifier : MonoBehaviour
     private void Update()
     {
 
-        if (ScrollManager.ScrollValue >= 0.2f && ScrollManager.ScrollValue <= 0.3f)
+        if (ScrollManager.ScrollValue >= 0.1f && ScrollManager.ScrollValue <= 0.4f)
         {
             FollowCursor();
         }
