@@ -17,4 +17,9 @@ public class ScrollManager : MonoBehaviour
     {
         ScrollValue = _scrollbar.value;
     }
+
+    public void ScrollTo(float value)
+    {
+        _scrollbar.value = value;
+    }
 }
