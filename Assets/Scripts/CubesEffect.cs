@@ -70,14 +70,14 @@ public class CubesEffect : MonoBehaviour
             float d = Vector2.Distance(mousePos, _cubesPositionsPart2[i].position);
             if (d <= 3.2f) // changable
             {
-                cube.position = Vector3.Lerp(cube.position, _cubesPositionsPart2[i].position, 4 * Time.deltaTime);
+                cube.position = Vector3.Lerp(cube.position, _cubesPositionsPart2[i].position, 80 * Time.deltaTime);
                 cube.localScale = Vector3.Lerp(cube.localScale, _cachedCubeScale, 4 * Time.deltaTime);
                 cube.forward = Vector3.Lerp(cube.forward, Vector3.forward, 4 * Time.deltaTime);
                 continue;
             }
             if (ScrollManager.ScrollValue <= 0.43f) // after this they will go to fixed positions
             {
-                cube.position = Vector3.Lerp(cube.position, _cubesPositionsPart2[i].position, 4 * Time.deltaTime);
+                cube.position = Vector3.Lerp(cube.position, _cubesPositionsPart2[i].position, 40 * Time.deltaTime);
                 cube.localScale = Vector3.Lerp(cube.localScale, _cachedCubeScale, 4 * Time.deltaTime);
                 cube.forward = Vector3.Lerp(cube.forward, Vector3.forward, 4 * Time.deltaTime);
                 continue;
@@ -96,8 +96,8 @@ public class CubesEffect : MonoBehaviour
 
             // Scale
             Vector3 newScale = Vector3.Lerp(_cachedCubeScale / 4, _cachedCubeScale / 1.2f, _distanceDevider / _distanceDeviderMax);
-            Vector3 finalScale = Vector3.Lerp(newScale, new Vector3(1, 1, 1), distance * 4f); // distance*3
-            cube.localScale = Vector3.MoveTowards(cube.localScale, finalScale, Time.deltaTime * 1000);
+            Vector3 finalScale = Vector3.Lerp(newScale, new Vector3(0, 0, 0), distance * 4f); // distance*3
+            cube.localScale = Vector3.MoveTowards(cube.localScale, finalScale, Time.deltaTime * 8);
 
         }
     }
@@ -111,7 +111,7 @@ public class CubesEffect : MonoBehaviour
                 _startPosX = (_columns / -2);
                 _startPosY = -(_rows - 1) / 2f;
                 Transform newCube = Instantiate(_cube, new Vector3(_startPosX + x, _startPosY + y, transform.position.z), Quaternion.identity).transform;
-                newCube.SetParent(transform);
+                //newCube.SetParent(transform);
                 //newCube.localScale = new Vector3(108, 108, 108);
                 _cubes.Add(newCube);
                 _cubesPositions.Add(newCube.position);
@@ -122,7 +122,8 @@ public class CubesEffect : MonoBehaviour
     // With offset
     private void CreateCubesGrid2()
     {
-        float yOffset = _granicnik.position.y;
+        //float yOffset = _granicnik.position.y;
+        GameObject parent = new GameObject();
         for (int y = 0; y < _rows; y++)
         {
             for (int x = 0; x < _columns; x++)
@@ -130,11 +131,14 @@ public class CubesEffect : MonoBehaviour
                 _startPosX = (_columns / -2);
                 _startPosY = -(_rows - 1) / 2f;
                 GameObject newPos = new GameObject();
-                newPos.transform.position = new Vector3(_startPosX + x, _startPosY + y + yOffset, transform.position.z);
-                newPos.transform.SetParent(_granicnik);
+                newPos.transform.position = new Vector3(_startPosX + x, _startPosY + y, transform.position.z);
+                newPos.transform.SetParent(parent.transform);
                 _cubesPositionsPart2.Add(newPos.transform);
             }
         }
+        parent.transform.SetParent(_granicnik);
+        parent.transform.localPosition = Vector3.zero;
+        parent.transform.localScale = new Vector3(108, 108, 108);
     }
 
 }
