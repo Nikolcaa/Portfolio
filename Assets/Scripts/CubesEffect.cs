@@ -30,6 +30,7 @@ public class CubesEffect : MonoBehaviour
         CreateCubesGrid();
         CreateCubesGrid2();
         _cachedCubeScale = _cubes[0].localScale;
+        Debug.Log(_cachedCubeScale);
         //Invoke(nameof(Animate_CubesComeToCursor), 2f);
     }
 
@@ -111,6 +112,7 @@ public class CubesEffect : MonoBehaviour
                 _startPosY = -(_rows - 1) / 2f;
                 Transform newCube = Instantiate(_cube, new Vector3(_startPosX + x, _startPosY + y, transform.position.z), Quaternion.identity).transform;
                 newCube.SetParent(transform);
+                //newCube.localScale = new Vector3(108, 108, 108);
                 _cubes.Add(newCube);
                 _cubesPositions.Add(newCube.position);
             }
@@ -125,11 +127,11 @@ public class CubesEffect : MonoBehaviour
         {
             for (int x = 0; x < _columns; x++)
             {
-                _startPosX = (_columns / -1);
+                _startPosX = (_columns / -2);
                 _startPosY = -(_rows - 1) / 2f;
                 GameObject newPos = new GameObject();
                 newPos.transform.position = new Vector3(_startPosX + x, _startPosY + y + yOffset, transform.position.z);
-                newPos.transform.SetParent(transform);
+                newPos.transform.SetParent(_granicnik);
                 _cubesPositionsPart2.Add(newPos.transform);
             }
         }

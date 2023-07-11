@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ScrollManager : MonoBehaviour
 {
     [SerializeField] private Scrollbar _scrollbar;
+    [SerializeField] private ScrollRect _scrollRect;
     public static float ScrollValue;
 
     private void Start()
@@ -20,6 +22,7 @@ public class ScrollManager : MonoBehaviour
 
     public void ScrollTo(float value)
     {
-        _scrollbar.value = value;
+        _scrollRect.DOVerticalNormalizedPos(value, .75f)
+            .SetEase(Ease.InOutQuad);
     }
 }
