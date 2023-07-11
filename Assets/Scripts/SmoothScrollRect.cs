@@ -31,4 +31,8 @@ public class SmoothScrollRect : ScrollRect
             base.OnScroll(data);
         }
     }
+
+    public override void OnBeginDrag(PointerEventData eventData) { }
+    public override void OnDrag(PointerEventData eventData) { }
+    public override void OnEndDrag(PointerEventData eventData) { }
 }

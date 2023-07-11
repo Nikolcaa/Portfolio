@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3960848246257457324}
   - component: {fileID: 1006689257727415018}
-  - component: {fileID: 7354194922254279444}
+  - component: {fileID: 8955082736466976024}
   - component: {fileID: 3630998856708404401}
   m_Layer: 5
   m_Name: Social
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7354194922254279444
+--- !u!114 &8955082736466976024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -336,7 +336,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0}
-  m_SizeDelta: {x: -711, y: 456.4}
+  m_SizeDelta: {x: -1120.27, y: 456.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9790253
 MonoBehaviour:
@@ -397,14 +397,14 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4285262079
-  m_fontColor: {r: 1, g: 0.9112653, b: 0.4198113, a: 1}
+  m_fontColor: {r: 1, g: 0.9098039, b: 0.41960785, a: 1}
   m_enableVertexGradient: 0
-  m_colorMode: 3
+  m_colorMode: 0
   m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+    topLeft: {r: 0.7058824, g: 0.59607846, b: 0, a: 1}
+    topRight: {r: 0.7058824, g: 0.59607846, b: 0, a: 1}
+    bottomLeft: {r: 0.7058824, g: 0.59607846, b: 0, a: 1}
+    bottomRight: {r: 0.7058824, g: 0.59607846, b: 0, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.9
+  m_fontSize: 19.5
   m_fontSizeBase: 228.6
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2520,7 +2520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3224,7 +3224,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 716004023}
   m_Direction: 2
   m_Value: 0.9999999
-  m_Size: 0.19659165
+  m_Size: 0.19659166
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8105,33 +8105,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8077fb13ded85cb4b9e5f175b52dc350, type: 3}
---- !u!114 &4394244997274503656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6031309582585785898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3eedef14d4aa914ca4db70834f3af92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnPress:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7536705680830570061}
-        m_TargetAssemblyTypeName: Link, Assembly-CSharp
-        m_MethodName: OpenLink
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &6031309582585785898
 GameObject:
   m_ObjectHideFlags: 0
@@ -8142,10 +8115,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7783317076986344016}
   - component: {fileID: 6272490985866688534}
-  - component: {fileID: 4394244997274503656}
   - component: {fileID: 7536705680830570061}
   - component: {fileID: 6031309582585785900}
   - component: {fileID: 6031309582585785899}
+  - component: {fileID: 6031309582585785901}
   m_Layer: 5
   m_Name: Social (1)
   m_TagString: Untagged
@@ -8191,6 +8164,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6031309582585785898}
   m_CullTransparentMesh: 1
+--- !u!114 &6031309582585785901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031309582585785898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3eedef14d4aa914ca4db70834f3af92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7536705680830570061}
+        m_TargetAssemblyTypeName: Link, Assembly-CSharp
+        m_MethodName: OpenLink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6272490985866688534
 MonoBehaviour:
   m_ObjectHideFlags: 0

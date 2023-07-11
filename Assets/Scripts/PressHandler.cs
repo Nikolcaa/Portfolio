@@ -10,8 +10,8 @@ public class PressHandler : MonoBehaviour, IPointerDownHandler
 
 	public ButtonPressEvent OnPress = new ButtonPressEvent();
 
-	public void OnPointerDown(PointerEventData eventData)
-	{
-		OnPress.Invoke();
-	}
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        OnPress.Invoke();
+    }
 }

@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 1270356338096988390}
   - component: {fileID: 1948485192}
   - component: {fileID: 8880342646684112505}
-  - component: {fileID: 9022239264755764926}
+  - component: {fileID: 1736574153773502248}
   - component: {fileID: 5214996892712142398}
   m_Layer: 5
   m_Name: Project
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 1270356338096988394}
   _anim: {fileID: 1948485192}
---- !u!114 &9022239264755764926
+--- !u!114 &1736574153773502248
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
