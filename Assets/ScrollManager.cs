@@ -23,6 +23,7 @@ public class ScrollManager : MonoBehaviour
     public void ScrollTo(float value)
     {
         _scrollRect.DOVerticalNormalizedPos(value, .75f)
-            .SetEase(Ease.InOutQuad);
+            .SetEase(Ease.InOutQuad)
+            .SetUpdate(UpdateType.Fixed);
     }
 }

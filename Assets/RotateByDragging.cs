@@ -6,18 +6,23 @@ using UnityEngine;
 public class RotateByDragging : MonoBehaviour
 {
     [SerializeField] private Transform _targetT;
+    [SerializeField] private float speed = 40;
 
-    Vector3 mPrevPos = Vector3.zero;
-    Vector3 mPosDelta = Vector3.zero;
+    Vector2 mPrevPos = Vector2.zero;
+    Vector2 mPosDelta = Vector2.zero;
 
     private void Update()
     {
         mPrevPos = Cursor.Position;
     }
 
+
     private void OnMouseDrag()
     {
-        mPosDelta = Cursor.Position - mPrevPos;
-        _targetT.Rotate(_targetT.up, -Vector3.Dot(mPosDelta, Vector3.right), Space.World);
+        float XaxisRotation = Input.GetAxis("Mouse X") * Time.deltaTime * speed;
+        float YaxisRotation = Input.GetAxis("Mouse Y") * Time.deltaTime * speed;
+        // select the axis by which you want to rotate the GameObject
+        _targetT.RotateAround(Vector3.down, XaxisRotation);
+        _targetT.RotateAround(Vector3.right, YaxisRotation);
     }
 }

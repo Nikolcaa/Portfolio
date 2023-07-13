@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,6 +11,8 @@ public class SmoothScrollRect : ScrollRect
 {
     public bool SmoothScrolling { get; set; } = true;
     public float SmoothScrollTime { get; set; } = 0.5f;
+
+    public static event Action OnScrollEvent;
 
     public override void OnScroll(PointerEventData data)
     {
@@ -24,12 +27,15 @@ public class SmoothScrollRect : ScrollRect
             Vector2 positionAfter = normalizedPosition;
 
             normalizedPosition = positionBefore;
-            this.DONormalizedPos(positionAfter, SmoothScrollTime);
+            this.DONormalizedPos(positionAfter, SmoothScrollTime)
+                .SetUpdate(UpdateType.Fixed);
         }
         else
         {
             base.OnScroll(data);
         }
+
+        OnScrollEvent?.Invoke();
     }
 
     public override void OnBeginDrag(PointerEventData eventData) { }
