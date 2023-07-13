@@ -4942,7 +4942,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 716004023}
   m_Direction: 2
   m_Value: 0.9999999
-  m_Size: 0.19659165
+  m_Size: 0.19659166
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8141,6 +8141,7 @@ GameObject:
   - component: {fileID: 1144828681}
   - component: {fileID: 1144828683}
   - component: {fileID: 1144828682}
+  - component: {fileID: 1144828684}
   m_Layer: 5
   m_Name: VukovaDiploma
   m_TagString: Untagged
@@ -8181,7 +8182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetT: {fileID: 1365575059}
-  speed: 10
+  speed: 6
 --- !u!61 &1144828683
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8208,6 +8209,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 524.9026, y: 580.45776}
   m_EdgeRadius: 0
+--- !u!114 &1144828684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144828680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f7fad0542734646b999bdae06a2799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetT: {fileID: 1365575059}
+  _speed: {x: 0, y: 10, z: 0}
 --- !u!1001 &1146614448
 PrefabInstance:
   m_ObjectHideFlags: 0

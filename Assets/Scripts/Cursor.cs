@@ -14,15 +14,15 @@ public class Cursor : MonoBehaviour
     public void SetUp()
     {
         T = transform;
-        T.position = Vector3.zero;
+        //T.position = Vector3.zero;
     }
 
     private void Update()
     {
+        FollowMouse();
         if (GameManager.Instance.GameState != GameState.STATE1_HOME)
             return;
 
-        FollowMouse();
         RotateToMouse();
         ScaleToMouse();
     }
